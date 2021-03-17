@@ -21,7 +21,8 @@ export default function ControlsContainer({
     }
   }; */
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    if (e.target.style.backgroundColor === "orange") return;
     if (power) togglePower();
     if (bank) toggleBank();
   };
