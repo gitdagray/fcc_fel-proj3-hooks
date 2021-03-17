@@ -7,20 +7,6 @@ export default function ControlsContainer({
   togglePower,
   toggleBank
 }) {
-  /* handleClick = (event) => {
-    if (event.target.style.backgroundColor === "orange") {
-      return; //already selected
-    }
-
-    if (this.props.title === "Power") {
-      this.props.setPower(event);
-    } else if (this.props.title === "Bank") {
-      this.props.setBank(event);
-    } else {
-      return;
-    }
-  }; */
-
   const handleClick = (e) => {
     if (e.target.style.backgroundColor === "orange") return;
     if (power) togglePower();
