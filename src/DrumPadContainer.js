@@ -3,8 +3,7 @@ import DrumPad from "./DrumPad";
 import { useEffect, useCallback } from "react";
 
 export default function DrumPadContainer({ bank, slider, power, setDisplay }) {
-  const memoizedSoundBank = useCallback(() => {
-    function soundBank() {
+  const soundBank = useCallback(() => {
       const bankA = [
         "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3",
         "https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3",
@@ -34,20 +33,15 @@ export default function DrumPadContainer({ bank, slider, power, setDisplay }) {
       } else {
         return bankB;
       }
-    }
-    return soundBank();
   }, [bank]);
 
-  const memoizedGetID = useCallback((array) => {
-    function getID(array) {
+  const getID = useCallback((array) => {
       const newArray = array.map((id) => {
         return id
           .replace("https://s3.amazonaws.com/freecodecamp/drums/", "")
           .replace(".mp3", "");
       });
       return newArray;
-    }
-    return getID(array);
   }, []);
 
   useEffect(() => {
@@ -65,11 +59,11 @@ export default function DrumPadContainer({ bank, slider, power, setDisplay }) {
         c: 8
       };
       const position = keyLookup[key];
-      const audio = memoizedSoundBank();
+      const audio = soundBank();
       if (position === 0 || position) {
         const audioFile = new Audio(audio[position]);
         audioFile.play();
-        const ids = memoizedGetID(audio);
+        const ids = getID(audio);
         const id = ids[position];
         setDisplay(id);
       }
@@ -80,11 +74,11 @@ export default function DrumPadContainer({ bank, slider, power, setDisplay }) {
     return function cleanup() {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [memoizedSoundBank, memoizedGetID, setDisplay]);
+  }, [soundBank, getID, setDisplay]);
 
   const keysArr = ["Q", "W", "E", "A", "S", "D", "Z", "X", "C"];
-  const soundFiles = memoizedSoundBank();
-  const ids = memoizedGetID(soundFiles);
+  const soundFiles = soundBank();
+  const ids = getID(soundFiles);
 
   return (
     <div className="drum-pad-container">
