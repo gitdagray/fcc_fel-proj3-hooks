@@ -22,7 +22,7 @@ export default function ControlsContainer({
         sliderDisabled={sliderDisabled}
         setSlider={setSlider}
       />
-      <Switch title="Bank" bank={bank} toggleBank={toggleBank} />
+      <Switch title="Bank" bank={bank} power={power} toggleBank={toggleBank} />
     </div>
   );
 }

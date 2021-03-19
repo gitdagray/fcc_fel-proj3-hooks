@@ -9,13 +9,13 @@ export default function ControlsContainer({
 }) {
   const handleClick = (e) => {
     if (e.target.style.backgroundColor === "orange") return;
-    if (power) togglePower();
-    if (bank) toggleBank();
+    if (title === 'Power') togglePower();
+    if (title === 'Bank' && power === 'ON') toggleBank();
   };
 
   const getButtonColorArray = () => {
     const array = [];
-    if (power === "ON" || bank === "A") {
+    if (power === "ON" && title === 'Power' || bank === "A") {
       array.push("#000", "orange");
     } else {
       array.push("orange", "#000");
