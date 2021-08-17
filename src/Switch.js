@@ -15,7 +15,9 @@ export default function ControlsContainer({
 
   const getButtonColorArray = () => {
     const array = [];
-    if (power === "ON" && title === 'Power' || bank === "A") {
+    if (power === "ON" && title === 'Power') {
+      array.push("#000", "orange");
+    } else if (bank === "A") {
       array.push("#000", "orange");
     } else {
       array.push("orange", "#000");
