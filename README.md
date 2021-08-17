@@ -4,7 +4,7 @@
 
 **Updated Solution with React Hooks**
 
-React app deployed on Netlify: 
+React app deployed on Netlify: https://loving-brattain-f8c20d.netlify.app/
 
 Requirements found here: https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-drum-machine
 
